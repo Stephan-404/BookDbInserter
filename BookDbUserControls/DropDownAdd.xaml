@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="BookDbUserControlsLib.DropDownAdd"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookDbUserControlsLib"
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded"
+             d:DesignHeight="40" d:DesignWidth="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+
+        <ComboBox Grid.Column="0" Margin="0" Name="ItemsComboBox" ItemsSource="{Binding Source, RelativeSource={RelativeSource AncestorType=UserControl}}" SelectionChanged="ItemsComboBox_SelectionChanged"/>
+        <Button Grid.Column="1" Margin="0" Content="+" Click="Button_Click"/>
+    </Grid>
+    
+</UserControl>
