@@ -79,7 +79,8 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <BookDbUserControlsLib:ShowNumberColoure x:Name="bookCount" NameSpace="Bücher" Grid.Column="0"/>
+            <BookDbUserControlsLib:ShowNumberColoure x:Name="bookCount" NameSpace="Bücher" maximum="20"  Grid.Column="0"/>
+            <BookDbUserControlsLib:ShowNumberColoure x:Name="authorCount" NameSpace="Authors" maximum="30"  Grid.Column="1"/>
         </Grid>
         
     </Grid>

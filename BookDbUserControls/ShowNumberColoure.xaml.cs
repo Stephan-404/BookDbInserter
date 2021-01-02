@@ -27,7 +27,11 @@ namespace BookDbUserControlsLib
             get { return Convert.ToInt32(lb_Number.Content); }
             set { lb_Number.Content = value; setColour(); }
         }
-
+        double maxValue;
+        public double maximum {
+            get { return maxValue; }
+            set { maxValue = value; } 
+        }
         public ShowNumberColoure()
         {
             InitializeComponent();
@@ -40,11 +44,12 @@ namespace BookDbUserControlsLib
 
         private void setColour()
         {
-            if (Count<5)
+            if (1*(maxValue/3)>Count)
             {
                 lb_Text.Background = Brushes.Green;
             }
-            else if(Count>5){
+            else if(2*(maxValue / 3) < Count)
+            {
                 lb_Text.Background = Brushes.Red;
             }
             else

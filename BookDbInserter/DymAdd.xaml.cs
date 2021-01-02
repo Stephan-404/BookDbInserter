@@ -20,7 +20,7 @@ namespace BookDbInserter
     public partial class DymAdd: Window
     {
 
-        public List<object> elements
+        public List<string> elements
         {
             get;
             set;
@@ -34,7 +34,10 @@ namespace BookDbInserter
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            FillView(elements.Select(s => (string)s).ToList());
+            //FillView(elements.Select(s => (string)s).ToList());
+            FillView(elements);
+            Height = (elements.Count*40)+40;
+            Width = 250;
         }
 
         private void FillView(List<string> elements)
@@ -44,14 +47,43 @@ namespace BookDbInserter
             {
                 Main_DymWindow.RowDefinitions.Add(new RowDefinition());
             }
+            Main_DymWindow.RowDefinitions.Add(new RowDefinition());
             Main_DymWindow.ColumnDefinitions.Add(new ColumnDefinition());
             Main_DymWindow.ColumnDefinitions.Add(new ColumnDefinition());
 
+            for (int j=0;j<elements.Count() ;j++)
+            {
+                Label lb = new Label();
+                lb.Content=elements[j];
+                Main_DymWindow.Children.Add(lb);
+                Grid.SetRow(lb, j);
 
-            Label lb = new Label();
-            lb.Background = Brushes.Black;
-            Main_DymWindow.Children.Add(lb);
-            Grid.SetRow(lb, 1);
+                TextBox tb = new TextBox();
+                tb.Name = "tb_"+elements[j];
+                Main_DymWindow.Children.Add(tb);
+                Grid.SetRow(tb,j);
+                Grid.SetColumn(tb,1);
+            }
+
+            Button bt_Add = new Button();
+            bt_Add.Click += AddBT;
+            bt_Add.Content = "ADD";
+            Main_DymWindow.Children.Add(bt_Add);
+            Grid.SetRow(bt_Add,elements.Count+1);
+            Grid.SetColumn(bt_Add,1); 
+        }
+
+        void AddBT(object sender, RoutedEventArgs e)
+        {
+           var children=Main_DymWindow.Children;
+            for (int i=0; i<elements.Count()*2;i++)
+            {
+                if (children[i] is TextBox )
+                {
+                    TextBox lb = children[i] as TextBox;
+                    var test=lb.Name;
+                }
+            }
         }
     }
 }

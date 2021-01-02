@@ -52,6 +52,13 @@ namespace BookDbInserter
             tb_height.Text = "0";
             loadBookList();
             fillComboBoxes();
+            fillUserControlls();
+        }
+
+        //Should be automated
+        private void fillUserControlls()
+        {
+            authorCount.Count = db.Authors.Count();
         }
 
         private void loadBookList()
@@ -96,8 +103,8 @@ namespace BookDbInserter
 
         void DropDownAddClickedDym(object sender, DropDownAdd.SelectedItemEventArgs e)
         {
-            List<object> s = new List<object> { "a","b","c"};
-
+            //List<string> s = db.PublishingCompanies.Select(s => s.ToString()).ToList();
+            List<string> s = new PublishingCompany().getParam();
             var value = e.SelectedChoice;
             DymAdd add_Window = new DymAdd();
             add_Window.elements = s;
@@ -150,6 +157,7 @@ namespace BookDbInserter
                 db.Books.Add(b);
                 db.SaveChanges();
                 loadBookList();
+                fillUserControlls();
             }
             catch (InvalidOperationException exc)
             {

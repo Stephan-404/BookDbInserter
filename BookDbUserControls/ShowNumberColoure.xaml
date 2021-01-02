@@ -8,8 +8,8 @@
              Loaded="UserControl_Loaded"
              d:DesignHeight="70" d:DesignWidth="100">
     <Grid>
-        <Label Name="lb_Text" Content="Label"  Margin="0,0,0,35"/>
-        <Label Name="lb_Number" Content="Label"  Margin="0,35,0,0" />
+        <Label Name="lb_Text" Content="Label"  Margin="5,5,5,35"/>
+        <Label Name="lb_Number" Content="Label"  Margin="5,35,5,5" />
 
     </Grid>
 </UserControl>

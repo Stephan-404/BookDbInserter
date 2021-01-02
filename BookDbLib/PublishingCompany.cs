@@ -22,5 +22,10 @@ namespace BookDbLib
         {
             return CompanyName;
         }
+
+        public List<string> getParam()
+        {
+            return new List<string> {"CompanyName"};
+        }
     }
 }
